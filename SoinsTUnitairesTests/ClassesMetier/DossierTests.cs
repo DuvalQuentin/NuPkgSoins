@@ -44,5 +44,13 @@ namespace ClassesMetier.Tests
             Dossier unDossier = InitialiseDossier();
             Assert.AreEqual(4, unDossier.GetNbJoursSoinsV2(), "La valeur doit être à 4");
         }
+
+        [TestMethod()]
+        public void DernierePrestationTest()
+        {
+            Dossier monDoss = InitialiseDossier();
+            String maLastPresta = new Prestation("Libelle P5", new DateTime(2015, 9, 10, 6, 0, 0), new Intervenant("Tournier", "helene")).ToString();
+            Assert.AreEqual(maLastPresta, monDoss.DernierePrestation().ToString(), "oui");
+        }
     }
 }
